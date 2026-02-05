@@ -1,0 +1,381 @@
+html {
+    scroll-behavior: smooth;
+}
+body {
+    /* This creates a gradient starting from top to bottom */
+    background: linear-gradient(to bottom, #6b6b6b, #bfbfbf);
+    
+    /* This ensures the gradient covers the full height of the screen */
+    min-height: 100vh;
+    margin: 0;
+    background-attachment: fixed; /* This keeps the background from moving when you scroll */
+}
+.nav-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centers the pill horizontally */
+    padding: 30px 0;         /* Space from the top of the screen */
+    z-index: 9999;           /* Stays ABOVE all text and windows */
+    pointer-events: none;    /* Allows clicking content behind the empty space */
+}
+
+/* 2. The Jumbo Glass Pill */
+.glass-pill {
+    display: flex;
+    gap: 40px;               /* More space between links */
+    padding: 20px 60px;      /* BIGGER bar size */
+    background: rgba(255, 255, 255, 0.1);
+    
+    /* The Frosty Recipe (Synced) */
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 100px;    /* Perfect round pill shape */
+    pointer-events: auto;    /* Makes the bar itself clickable */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Smooth pop effect */
+}
+
+/* 3. The Hover State (Keeps the blur solid) */
+.glass-pill:hover {
+    transform: scale(1.1);   /* Grows significantly on hover */
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    
+    /* We re-declare the blur so it never disappears */
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+}
+
+/* 4. The Nav Links */
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;       /* Larger text */
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #1e4e63;          /* Matches your pink/red theme */
+}
+.texttab{
+    transition: transform 0.3s;
+}
+.texttab {
+    color: #b0b0b0; 
+    text-shadow: 0 7px 30px rgba(86, 79, 79, 0.947);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 30px;
+    outline: none;
+    background: none;
+    -webkit-tap-highlight-color: transparent;
+}
+.texttab:hover {
+    text-shadow: none !important; 
+    box-shadow: none !important;
+    background: transparent !important;
+    color: #1e4164; 
+    transform: scale(1.1); 
+}
+.div2 {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ width: 400px;
+ height: 500px;
+ background-color: rgba(255, 255, 255, 0.05); /* Tint */
+ backdrop-filter: blur(15px);                  /* The blur effect */
+ -webkit-backdrop-filter: blur(15px);
+ border-radius: 25px;                          /* Rounded corners */
+ border: 1px solid rgba(255, 255, 255, 0.1);   /* Glass edge */
+ box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);   /* Soft shadow */
+}
+.maindiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  /* Pulls windows to the horizontal center */
+    gap: 20px;               /* Keeps them from touching */
+    width: 100%;             /* Makes sure the container spans the whole screen */
+    padding-top: 250px;       /* Adds space below your nav bar */
+    flex-wrap: wrap;
+}
+.seconddiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+.glassdiv:hover {
+    transform: scale(1.05);             /* Grows 5% */
+    background: rgba(255, 255, 255, 0.4); /* Gets brighter */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+.glassdiv {
+    animation: fadeInUp 0.8s ease-out forwards;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.2); 
+    
+    /* 2. The blur effect (this makes it look like frosted glass) */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* For Safari support */
+    
+    /* 3. The 'edge' (gives it a subtle 3D border) */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    
+    /* 4. Shadow and Shape */
+    border-radius: 30px;
+    padding: 30px;
+    width: 300px;
+    height: 400px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+}
+.locationdiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+}
+.locationdivmap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.locationdivtext {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+.locationdivcontext {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 30px;
+}
+.Header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+    font-size: 35px;
+}
+.locationdivgooglemap {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    border-radius: 30px;
+    overflow: hidden;
+}
+.locationtitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+.aboutus {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+}
+.aboutuscontext {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 30px;
+    margin-left: 250px;
+    margin-right: 250px;
+    font-size: 40px;
+}
+.aboutusheader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 60px;
+    
+}
+.glassdivmedia {
+    animation: fadeInUp 0.8s ease-out forwards;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.2); 
+    
+    /* 2. The blur effect (this makes it look like frosted glass) */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* For Safari support */
+    
+    /* 3. The 'edge' (gives it a subtle 3D border) */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    
+    /* 4. Shadow and Shape */
+    border-radius: 30px;
+    padding: 30px;
+    width: 250px;
+    height: auto;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.texttabinsta {
+    color: #ffffff; 
+    text-shadow: 0 7px 30px rgba(86, 79, 79, 0.947);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+    outline: none;
+    background: none;
+    -webkit-tap-highlight-color: transparent;
+}
+.texttabinsta:hover {
+    background: linear-gradient( 15deg, #f800a5, #7a012b);
+    
+    /* 2. This 'cuts' the background into the shape of the letters */
+    -webkit-background-clip: text;
+    background-clip: text;
+    
+    /* 3. This makes the original text color invisible so the gradient shows through */
+    color: transparent;
+    
+    /* 4. Keep your grow effect */
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+    
+    /* Clean up the extras */
+    text-shadow: none;
+    box-shadow: none; 
+}
+.texttabx {
+    color: #ffffff; 
+    text-shadow: 0 7px 30px rgba(86, 79, 79, 0.947);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+    outline: none;
+    background: none;
+    -webkit-tap-highlight-color: transparent;
+}
+.texttabx:hover {
+    background: linear-gradient( 15deg, #000000, #594e52);
+    
+    /* 2. This 'cuts' the background into the shape of the letters */
+    -webkit-background-clip: text;
+    background-clip: text;
+    
+    /* 3. This makes the original text color invisible so the gradient shows through */
+    color: transparent;
+    
+    /* 4. Keep your grow effect */
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+    
+    /* Clean up the extras */
+    text-shadow: none;
+    box-shadow: none; 
+}
+.texttabwhatsapp {
+    color: #ffffff; 
+    text-shadow: 0 7px 30px rgba(86, 79, 79, 0.947);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+    outline: none;
+    background: none;
+    -webkit-tap-highlight-color: transparent;
+}
+.texttabwhatsapp:hover {
+    background: linear-gradient( 15deg, #04dc28, #26873d);
+    
+    /* 2. This 'cuts' the background into the shape of the letters */
+    -webkit-background-clip: text;
+    background-clip: text;
+    
+    /* 3. This makes the original text color invisible so the gradient shows through */
+    color: transparent;
+    
+    /* 4. Keep your grow effect */
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+    
+    /* Clean up the extras */
+    text-shadow: none;
+    box-shadow: none; 
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px); /* Starts 30px lower */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);    /* Ends in its natural spot */
+    }
+}
+.nav {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* 2. The Main Title (h1) appears slightly after */
+h1 {
+    animation: fadeInUp 0.8s ease-out 0.2s forwards; /* 0.2s is the delay */
+    opacity: 0; /* Keeps it hidden until the animation starts */
+}
+
+/* 3. The Paragraph text follows */
+p {
+    animation: fadeInUp 0.8s ease-out 0.4s forwards; /* 0.4s is the delay */
+    opacity: 0;
+}
+
+/* 4. The Glass Windows appear last in a wave */
+.glassdiv {
+    animation: fadeInUp 0.8s ease-out 0.6s forwards; /* 0.6s is the delay */
+    opacity: 0;
+}
+@media (max-width: 600px) {
+    .glass-pill {
+        padding: 15px 25px;    /* Smaller padding so it fits */
+        gap: 15px;             /* Tighter spacing between links */
+        flex-wrap: wrap;       /* Allows links to move to a new line if needed */
+        justify-content: center;
+        width: 90%;            /* Keeps the pill from touching the screen edges */
+        border-radius: 25px;   /* Slightly less round for a better fit */
+    }
+
+    .nav-link {
+        font-size: 0.9rem;     /* Smaller text for small screens */
+    }
+
+    .nav-container {
+        padding: 15px 0;       /* Move it closer to the top */
+    }
+    
+    .nav-spacer {
+        height: 180px;         /* Extra space if the menu wraps to two lines */
+    }
+}
